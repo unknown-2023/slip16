@@ -1,0 +1,2 @@
+Write a Java Program to implement Observer Design Pattern for number conversion. Accept a number in Decimal form and represent it in Hexadecimal, Octal and Binary. 
+Change the  Number and it reflects in other forms also 
