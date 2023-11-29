@@ -1,2 +1,73 @@
 Write a Java Program to implement Observer Design Pattern for number conversion. Accept a number in Decimal form and represent it in Hexadecimal, Octal and Binary. 
 Change the  Number and it reflects in other forms also 
+
+interface Command 
+{
+    public void execute();
+}
+class Remote
+{
+    public void working() {
+        System.out.println("Remote is Working");
+    }
+
+    public void notWorking() {
+        System.out.println("Remote is Not Working");
+    }
+}
+
+class WorkingRemote implements Command {
+    Remote r1;
+    public WorkingRemote(Remote a) {
+        this.r1 = a;
+    }
+    public void execute() {
+        r1.working();
+    }
+}
+class NotWorkingRemote implements Command {
+    Remote r1;
+    public NotWorkingRemote(Remote a) {
+        this.r1 = a;
+    }
+    public void execute() {
+        r1.notWorking();
+    }    
+}
+
+class SimpleRemoteControl {
+    Command c;
+    public SimpleRemoteControl() 
+    {
+    }
+    public void setCommand(Command command) {
+        c = command;
+    }
+
+    public void buttonWasPressed() {
+        c.execute();
+    }
+}
+
+public class Slip6 {
+    public static void main(String[] args) {
+        SimpleRemoteControl r1 = new SimpleRemoteControl();
+        Remote r = new Remote();
+
+        WorkingRemote wr = new WorkingRemote(r);
+        r1.setCommand(wr);
+        r1.buttonWasPressed();
+        
+        NotWorkingRemote nwr = new NotWorkingRemote(r);
+        r1.setCommand(nwr);
+        r1.buttonWasPressed();  
+    }
+}
+
+/*output
+ 
+ * PS I:\My Drive\NRClasses\MCS\Sem 3\SADP\SADPSlipSolutions> java Slip6
+Remote is Working
+Remote is Not Working
+PS I:\My Drive\NRClasses\MCS\Sem 3\SADP\SADPSlipSolutions> 
+ */
