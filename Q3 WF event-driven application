@@ -1,26 +1,42 @@
 Create a js file named main.js for  event-driven application. There should be a main loop that listens for events, and then triggers a callback function when one of those 
 events is detected.   
 
-const EventEmitter = require(&#39;events&#39;);
-
+const EventEmitter = require('events');
 // Create an instance of EventEmitter
 const eventEmitter = new EventEmitter();
-
 // Define an event and its associated callback function
-eventEmitter.on(&#39;myEvent&#39;, (data) =&gt; {
-  console.log(`Event received with data: ${data}`);
+eventEmitter.on('myEvent', (data) => {
+ console.log(`Event received with data: ${data}`);
 });
-
 // Your main loop that listens for events
 function mainLoop() {
-  console.log(&#39;Main loop is running...&#39;);
-  // Simulate some work
-  setTimeout(() =&gt; {
-    // Emit the &#39;myEvent&#39; event with some data
-    eventEmitter.emit(&#39;myEvent&#39;, &#39;Hello, world!&#39;);
-    // Continue the main loop
-    mainLoop();
-  }, 2000); // Wait for 2 seconds before emitting the event again
+ console.log('Main loop is running...');
+ // Simulate some work
+ setTimeout(() => {
+ // Emit the 'myEvent' event with some data
+ eventEmitter.emit('myEvent', 'Hello, world!');
+ // Continue the main loop
+ mainLoop();
+ }, 2000); // Wait for 2 seconds before emitting the event again
 }
 // Start the main loop
 mainLoop();
+
+In this `main.js` script:
+1. We require the `events` module to use the `EventEmitter` class.
+2. We create an instance of `EventEmitter` called `eventEmitter`.
+3. We define an event named `'myEvent'` and associate it with a callback function
+that logs the received data.
+4. The `mainLoop` function is your main loop that listens for events. In this example,
+it simulates some work with a `setTimeout` and then emits the `'myEvent'` event with
+the message "Hello, world!".
+5. The main loop continues running by calling itself after a 2-second delay, creating a
+repeating cycle.
+To run this script, make sure you have Node.js installed, save the code to a file
+named `main.js`, and run it using:
+```bash
+node main.js
+``` 
+
+You'll see the main loop running and emitting the `'myEvent'` event with the message
+every 2 seconds.
