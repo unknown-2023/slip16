@@ -21,22 +21,6 @@ function mainLoop() {
 }
 // Start the main loop
 mainLoop();
-
-In this `main.js` script:
-1. We require the `events` module to use the `EventEmitter` class.
-2. We create an instance of `EventEmitter` called `eventEmitter`.
-3. We define an event named `'myEvent'` and associate it with a callback function
-that logs the received data.
-4. The `mainLoop` function is your main loop that listens for events. In this example,
-it simulates some work with a `setTimeout` and then emits the `'myEvent'` event with
-the message "Hello, world!".
-5. The main loop continues running by calling itself after a 2-second delay, creating a
-repeating cycle.
-To run this script, make sure you have Node.js installed, save the code to a file
-named `main.js`, and run it using:
-```bash
-node main.js
-``` 
-
-You'll see the main loop running and emitting the `'myEvent'` event with the message
-every 2 seconds.
+------------------------------------------------------------------------------------
+1) give file name as event.js
+2) run in terminal as --> node event.js
