@@ -1,4 +1,4 @@
-Write a python program to Implement Simple Linear Regression for predicting house price. 
+Write a python program to Implement Simple Linear Regression for predicting house price.
 
 import pandas as pd
 import numpy as np
@@ -10,8 +10,7 @@ HouseDF.describe()
 HouseDF.columns
 
 ##X and y List - 
-X = HouseDF[['Avg. Area Income', 'Avg. Area House Age', 'Avg. Area Number of 
-Rooms', 'Avg. Area Number of Bedrooms', 'Area Population']]
+X = HouseDF[['Avg. Area Income', 'Avg. Area House Age', 'Avg. Area Number of Rooms', 'Avg. Area Number of Bedrooms', 'Area Population']]
 y = HouseDF['Price']
 
 ##Split Data into Train, Test - 
@@ -29,6 +28,7 @@ coeff_df = pd.DataFrame(lm.coef_,X.columns,columns=['Coefficient'])
 coeff_df
 
 ##Predictions from our Linear Regression Model -
+import seaborn as sns
 predictions = lm.predict(X_test) 
 plt.scatter(y_test,predictions)
 sns.distplot((y_test-predictions),bins=50);
